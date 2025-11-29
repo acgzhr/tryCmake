@@ -44,7 +44,7 @@ jobs:
 
     - name: Package library and headers
       run: |
-        ACKAGE_NAME="${{ github.event.repository.name }}_${{ matrix.os }}_${{ matrix.build_type }}_v${{ github.sha::8 }}"
+        ACKAGE_NAME="${{ github.event.repository.name }}_${{ matrix.os }}_${{ matrix.build_type }}_v${{ github.sha:0:8 }}"
         PACKAGE_NAME="${PACKAGE_NAME}.tar.gz"
         tar -czf $PACKAGE_NAME -C ./bin .
         echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
